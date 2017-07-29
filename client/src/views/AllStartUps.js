@@ -77,7 +77,7 @@ const tilesData = [
   },
 ]
 
-class Topics extends React.Component {
+class AllStartUps extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -133,6 +133,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedTopics = connect(mapStateToProps)(Topics)
+const ConnectedAllStartUps = connect(mapStateToProps)(AllStartUps)
 
-export default withRouter(ConnectedTopics)
+export default withRouter(ConnectedAllStartUps)

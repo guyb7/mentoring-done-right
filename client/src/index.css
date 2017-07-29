@@ -36,16 +36,3 @@ html, body {
 .hidden {
   display: none;
 }
-
-.ss1-img {
-  background: url(./images/ss1.png) no-repeat center center;
-  background-size: contain;
-  height: 100%;
-  width: 100%;
-}
-.ss2-img {
-  background: url(./images/ss2.png) no-repeat center center;
-  background-size: contain;
-  height: 100%;
-  width: 100%;
-}

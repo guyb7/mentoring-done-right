@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom'
 
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
-import { blueGrey100, blueGrey900 } from 'material-ui/styles/colors'
+import Divider from 'material-ui/Divider'
+import { blueGrey100, blueGrey800, blueGrey900 } from 'material-ui/styles/colors'
 
 import HomeIcon from 'material-ui/svg-icons/action/home'
 import MyStartupsIcon from 'material-ui/svg-icons/toggle/star'
@@ -14,6 +15,10 @@ import NotificationsIcon from 'material-ui/svg-icons/social/notifications'
 import MessagesIcon from 'material-ui/svg-icons/communication/message'
 import UserIcon from 'material-ui/svg-icons/social/person'
 import LogoutIcon from 'material-ui/svg-icons/action/exit-to-app'
+import LeftIcon from 'material-ui/svg-icons/navigation/arrow-back'
+import NewSessionIcon from 'material-ui/svg-icons/content/add'
+import SessionsIcon from 'material-ui/svg-icons/content/inbox'
+import FilesIcon from 'material-ui/svg-icons/file/attachment'
 
 const style = {
   container: {
@@ -27,6 +32,9 @@ const style = {
   menu: {
     width: '100%',
   },
+  divider: {
+    backgroundColor: blueGrey800
+  },
   item: {
     color: blueGrey100
   },
@@ -34,13 +42,60 @@ const style = {
 }
 
 class SideNav extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      path: '/'
+    }
+  }
+
+  componentDidMount(prevProps, prevState) {
+    this.setState({
+      ...this.state,
+      path: this.props.history.location.pathname
+    }, () => {
+      this.props.history.listen((location, action) => {
+        this.setState({
+          ...this.state,
+          path: location.pathname
+        })
+      })
+    })
+  }
+
   changePage(page) {
     this.props.history.push(page)
   }
 
   render() {
-    return (
-      <div style={{ ...this.props.style, ...style.container }}>
+    let menuItems = null
+    if (this.state.path.startsWith('/start-ups/')) {
+      menuItems = (
+        <Menu menuItemStyle={style.item} style={style.menu}>
+          <MenuItem
+            primaryText="Back Home"
+            leftIcon={<LeftIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/')} />
+          <Divider style={style.divider} />
+          <MenuItem
+            primaryText="New Session"
+            leftIcon={<NewSessionIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/start-ups/ressio/new-session')} />
+          <MenuItem
+            primaryText="Past Sessions"
+            leftIcon={<SessionsIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/start-ups/ressio/sessions')} />
+          <MenuItem
+            primaryText="Files"
+            leftIcon={<FilesIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/start-ups/ressio/files')} />
+          <MenuItem
+            primaryText="Send Message"
+            leftIcon={<MessagesIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/start-ups/ressio/messages')} />
+        </Menu>)
+    } else {
+      menuItems = (
         <Menu menuItemStyle={style.item} style={style.menu}>
           <MenuItem
             primaryText="Home"
@@ -55,10 +110,14 @@ class SideNav extends Component {
             leftIcon={<StartupsIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/start-ups')} />
           <MenuItem
-            primaryText="Members"
+            primaryText="People"
             leftIcon={<MembersIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/members')} />
-        </Menu>
+        </Menu>)
+    }
+    return (
+      <div style={{ ...this.props.style, ...style.container }}>
+        {menuItems}
         <Menu menuItemStyle={style.item} style={style.menu}>
           <MenuItem
             primaryText="Notifications"
@@ -78,7 +137,7 @@ class SideNav extends Component {
             onTouchTap={() => {}} />
         </Menu>
       </div>
-    );
+    )
   }
 }
 
