@@ -13,6 +13,7 @@ import SideNav from './components/SideNav'
 import Home from './views/Home'
 import AllStartUps from './views/AllStartUps'
 import StartUp from './views/StartUp'
+import NewSession from './views/NewSession'
 import Members from './views/Members'
 
 const baseUrl = process.env.NODE_ENV.toUpperCase() === 'TEST' ? '' : '/app'
@@ -64,6 +65,7 @@ class App extends Component {
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/start-ups" component={AllStartUps}/>
                 <Route exact path="/start-ups/:startupName" component={StartUp}/>
+                <Route exact path="/start-ups/:startupName/new-session" component={NewSession}/>
                 <Route exact path="/members" component={Members}/>
               </div>
             </div>

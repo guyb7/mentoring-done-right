@@ -10,9 +10,6 @@ import Subheader from 'material-ui/Subheader'
 
 import { grey800, grey300 } from 'material-ui/styles/colors'
 
-import startupReesioImg from '../img/startup-reesio.png'
-import startupCanvaImg from '../img/startup-canva.png'
-import startupTunaImg from '../img/startup-tuna.jpg'
 import user1img from '../img/user-1.jpg'
 import user2img from '../img/user-2.jpg'
 

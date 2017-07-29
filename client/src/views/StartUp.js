@@ -6,8 +6,7 @@ import * as actionCreators from '../store/action-creators'
 import Avatar from 'material-ui/Avatar'
 import { List, ListItem } from 'material-ui/List'
 import Chip from 'material-ui/Chip'
-import TextField from 'material-ui/TextField'
-import { blueGrey50, grey800, blueGrey300, green300, red300 } from 'material-ui/styles/colors'
+import { grey800, blueGrey300, green300, red300 } from 'material-ui/styles/colors'
 
 import user1img from '../img/user-1.jpg'
 import user2img from '../img/user-2.jpg'
@@ -45,19 +44,6 @@ const style = {
   },
   members: {
     width: 220
-  },
-  notesContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  notes: {
-    flex: 1,
-    margin: 10,
-    padding: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    backgroundColor: blueGrey50
   },
   actionItem: {
     display: 'flex',
@@ -154,70 +140,6 @@ class StartUp extends React.Component {
         </div>
 
         <div style={style.item}>
-          <h3>Recent Activities</h3>
-          <div style={style.actionItem}>
-            <Avatar src={user1img} alt="" />
-            <div style={style.actionItemText}>
-              <span style={style.greenText}>Done</span> - Design an MVP
-            </div>
-            <div style={style.actionItemDue}>
-              Yesterday
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user2img} alt="" />
-            <div style={style.actionItemText}>
-              <span style={style.greenText}>Done</span> - Write marketing content
-            </div>
-            <div style={style.actionItemDue}>
-              Yesterday
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user1img} alt="" />
-            <div style={style.actionItemText}>
-              Mentoring Session
-            </div>
-            <div style={style.actionItemDue}>
-              2 days ago
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user2img} alt="" />
-            <div style={style.actionItemText}>
-              <span style={style.greenText}>Done</span> - Test prototype with 20 users
-            </div>
-            <div style={style.actionItemDue}>
-              1 week ago
-            </div>
-          </div>
-        </div>
-
-        <div style={style.item}>
-          <h3>Notes</h3>
-          <div style={style.notesContainer}>
-            <div style={style.notes}>
-              <h4>Public</h4>
-              <TextField
-                multiLine={true}
-                rows={10}
-                fullWidth={true}
-                id="notes_public"
-              />
-            </div>
-            <div style={style.notes}>
-              <h4>Private</h4>
-              <TextField
-                multiLine={true}
-                rows={10}
-                fullWidth={true}
-                id="notes_private"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div style={style.item}>
           <h3>Action Items</h3>
           <div style={style.actionItem}>
             <Avatar src={user1img} alt="" />
@@ -266,6 +188,45 @@ class StartUp extends React.Component {
           </div>
         </div>
 
+        <div style={style.item}>
+          <h3>Recent Activities</h3>
+          <div style={style.actionItem}>
+            <Avatar src={user1img} alt="" />
+            <div style={style.actionItemText}>
+              <span style={style.greenText}>Done</span> - Design an MVP
+            </div>
+            <div style={style.actionItemDue}>
+              Yesterday
+            </div>
+          </div>
+          <div style={style.actionItem}>
+            <Avatar src={user2img} alt="" />
+            <div style={style.actionItemText}>
+              <span style={style.greenText}>Done</span> - Write marketing content
+            </div>
+            <div style={style.actionItemDue}>
+              Yesterday
+            </div>
+          </div>
+          <div style={style.actionItem}>
+            <Avatar src={user1img} alt="" />
+            <div style={style.actionItemText}>
+              Mentoring Session
+            </div>
+            <div style={style.actionItemDue}>
+              2 days ago
+            </div>
+          </div>
+          <div style={style.actionItem}>
+            <Avatar src={user2img} alt="" />
+            <div style={style.actionItemText}>
+              <span style={style.greenText}>Done</span> - Test prototype with 20 users
+            </div>
+            <div style={style.actionItemDue}>
+              1 week ago
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

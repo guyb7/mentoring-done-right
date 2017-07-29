@@ -69,7 +69,7 @@ class SideNav extends Component {
 
   render() {
     let menuItems = null
-    if (this.state.path.startsWith('/start-ups/')) {
+    if (this.state.path.match(/^\/start-ups\/([^/]+)$/i)) {
       menuItems = (
         <Menu menuItemStyle={style.item} style={style.menu}>
           <MenuItem
@@ -93,6 +93,14 @@ class SideNav extends Component {
             primaryText="Send Message"
             leftIcon={<MessagesIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/start-ups/ressio/messages')} />
+        </Menu>)
+    } else if (this.state.path.match(/^\/start-ups\/([^/]+)\/new-session$/i)) {
+      menuItems = (
+        <Menu menuItemStyle={style.item} style={style.menu}>
+          <MenuItem
+            primaryText="Back"
+            leftIcon={<LeftIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/start-ups/ressio')} />
         </Menu>)
     } else {
       menuItems = (
