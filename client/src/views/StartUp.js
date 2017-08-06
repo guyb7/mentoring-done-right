@@ -44,34 +44,6 @@ const style = {
   },
   members: {
     width: 220
-  },
-  actionItem: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginBottom: 20
-  },
-  actionItemText: {
-    marginLeft: 10,
-    fontSize: 16
-  },
-  checkbox: {
-    maxWidth: 450,
-    marginBottom: 20
-  },
-  actionItemDue: {
-    marginLeft: 10,
-    fontSize: 13,
-    color: blueGrey300
-  },
-  actionItemDueRed: {
-    marginLeft: 10,
-    fontSize: 13,
-    color: red300
-  },
-  greenText: {
-    color: green300
   }
 }
 
@@ -91,7 +63,7 @@ class StartUp extends React.Component {
           <div style={style.header}>
             <div>
               <h2>Reesio</h2>
-              <p>A modern transaction management system for today's busy real estate professional.</p>
+              <p>A modern transaction management system for todays busy real estate professional.</p>
             </div>
             <img src={startupReesioImg} alt="" style={style.logo} />
           </div>
@@ -140,90 +112,21 @@ class StartUp extends React.Component {
         </div>
 
         <div style={style.item}>
-          <h3>Action Items</h3>
+          <h3>Looking For</h3>
           <div style={style.actionItem}>
-            <Avatar src={user1img} alt="" />
             <div style={style.actionItemText}>
-              Design an MVP
+              Marketing Expert
             </div>
-            <div style={style.actionItemDueRed}>
-              Due
+            <div style={style.actionItemDue}>
+              We look for someone with good experience in marketing
             </div>
           </div>
           <div style={style.actionItem}>
-            <Avatar src={user2img} alt="" />
             <div style={style.actionItemText}>
-              Write marketing content
+              Content Writer
             </div>
             <div style={style.actionItemDue}>
-              Due tomorrow
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user1img} alt="" />
-            <div style={style.actionItemText}>
-              Brainstorm for potential model businesses
-            </div>
-            <div style={style.actionItemDue}>
-              Due in 3 days
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user2img} alt="" />
-            <div style={style.actionItemText}>
-              Build a mockup of the prototype
-            </div>
-            <div style={style.actionItemDue}>
-              Due in 3 days
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user2img} alt="" />
-            <div style={style.actionItemText}>
-              Test prototype with 20 users
-            </div>
-            <div style={style.actionItemDue}>
-              Due in 1 week
-            </div>
-          </div>
-        </div>
-
-        <div style={style.item}>
-          <h3>Recent Activities</h3>
-          <div style={style.actionItem}>
-            <Avatar src={user1img} alt="" />
-            <div style={style.actionItemText}>
-              <span style={style.greenText}>Done</span> - Design an MVP
-            </div>
-            <div style={style.actionItemDue}>
-              Yesterday
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user2img} alt="" />
-            <div style={style.actionItemText}>
-              <span style={style.greenText}>Done</span> - Write marketing content
-            </div>
-            <div style={style.actionItemDue}>
-              Yesterday
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user1img} alt="" />
-            <div style={style.actionItemText}>
-              Mentoring Session
-            </div>
-            <div style={style.actionItemDue}>
-              2 days ago
-            </div>
-          </div>
-          <div style={style.actionItem}>
-            <Avatar src={user2img} alt="" />
-            <div style={style.actionItemText}>
-              <span style={style.greenText}>Done</span> - Test prototype with 20 users
-            </div>
-            <div style={style.actionItemDue}>
-              1 week ago
+              Fluent in English with technical background
             </div>
           </div>
         </div>

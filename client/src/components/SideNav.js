@@ -82,10 +82,6 @@ class SideNav extends Component {
             leftIcon={<NewSessionIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/start-ups/ressio/new-session')} />
           <MenuItem
-            primaryText="Past Sessions"
-            leftIcon={<SessionsIcon color={style.iconColor} />}
-            onTouchTap={() => this.changePage('/start-ups/ressio/sessions')} />
-          <MenuItem
             primaryText="Files"
             leftIcon={<FilesIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/start-ups/ressio/files')} />

@@ -94,3 +94,10 @@ GRANT mentoring_admin TO postgres WITH ADMIN OPTION;
 ### Authentication
 
 ### Issues
+
+### TODO
+- remove past sessions tab - show all info in new session
+- accelerator dashboard
+V add looking for tab in startup page
+- create startup/mentor/accelerator flows
+- start up / mentor survey sent from accelerator

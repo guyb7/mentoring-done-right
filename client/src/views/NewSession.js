@@ -10,7 +10,7 @@ import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import DatePicker from 'material-ui/DatePicker'
 import RaisedButton from 'material-ui/RaisedButton'
-import { blueGrey50, grey800 } from 'material-ui/styles/colors'
+import { blueGrey50, blueGrey300, grey800, green300, red300 } from 'material-ui/styles/colors'
 
 import SendIcon from 'material-ui/svg-icons/content/send'
 import user1img from '../img/user-1.jpg'
@@ -83,6 +83,14 @@ const style = {
   },
   submit: {
     margin: 20
+  },
+  actionItemDueRed: {
+    marginLeft: 10,
+    fontSize: 13,
+    color: red300
+  },
+  greenText: {
+    color: green300
   }
 }
 
@@ -214,6 +222,55 @@ class StartUp extends React.Component {
               primary={true}
               icon={<SendIcon />}
               style={style.submit} />
+          </div>
+        </div>
+
+        <div style={style.item}>
+          <h3>Action Items</h3>
+          <div style={style.actionItem}>
+            <Avatar src={user1img} alt="" />
+            <div style={style.actionItemText}>
+              Design an MVP
+            </div>
+            <div style={style.actionItemDueRed}>
+              Due
+            </div>
+          </div>
+          <div style={style.actionItem}>
+            <Avatar src={user2img} alt="" />
+            <div style={style.actionItemText}>
+              Write marketing content
+            </div>
+            <div style={style.actionItemDue}>
+              Due tomorrow
+            </div>
+          </div>
+          <div style={style.actionItem}>
+            <Avatar src={user1img} alt="" />
+            <div style={style.actionItemText}>
+              Brainstorm for potential model businesses
+            </div>
+            <div style={style.actionItemDue}>
+              Due in 3 days
+            </div>
+          </div>
+          <div style={style.actionItem}>
+            <Avatar src={user2img} alt="" />
+            <div style={style.actionItemText}>
+              Build a mockup of the prototype
+            </div>
+            <div style={style.actionItemDue}>
+              Due in 3 days
+            </div>
+          </div>
+          <div style={style.actionItem}>
+            <Avatar src={user2img} alt="" />
+            <div style={style.actionItemText}>
+              Test prototype with 20 users
+            </div>
+            <div style={style.actionItemDue}>
+              Due in 1 week
+            </div>
           </div>
         </div>
       </div>
