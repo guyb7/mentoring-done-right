@@ -8,6 +8,13 @@ export function setTitle(value) {
   }
 }
 
+export function setUserType(value) {
+  return {
+    type: 'SET_USER_TYPE',
+    value
+  }
+}
+
 const delayCallback = (cb) => {
   setTimeout(() => {
     cb()

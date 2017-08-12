@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import * as actionCreators from '../store/action-creators'
 
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+import DropDownMenu from 'material-ui/DropDownMenu'
 import Divider from 'material-ui/Divider'
 import { blueGrey100, blueGrey800, blueGrey900 } from 'material-ui/styles/colors'
 
@@ -65,6 +67,10 @@ class SideNav extends Component {
 
   changePage(page) {
     this.props.history.push(page)
+  }
+
+  changeUserType(value) {
+    this.props.dispatch(actionCreators.setUserType(value))
   }
 
   render() {
@@ -139,6 +145,11 @@ class SideNav extends Component {
             primaryText="Logout"
             leftIcon={<LogoutIcon color={style.iconColor} />}
             onTouchTap={() => {}} />
+          <DropDownMenu value={this.props.user.user_type} onChange={(e,i,v) => this.changeUserType(v)} labelStyle={{ color: style.iconColor }}>
+            <MenuItem value={'startup'} primaryText="Startup" />
+            <MenuItem value={'mentor'} primaryText="Mentor" />
+            <MenuItem value={'accelerator'} primaryText="Accelerator" />
+          </DropDownMenu>
         </Menu>
       </div>
     )

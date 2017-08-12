@@ -26,12 +26,18 @@ const defaultUserState = {
   is_loading: false,
   logged_in: false,
   user_id: null,
+  user_type: 'startup',
   username: null,
   name: '',
   role: 'user'
 }
 export function user(state = defaultUserState, action) {
   switch (action.type) {
+    case 'SET_USER_TYPE':
+      return {
+        ...state,
+        user_type: action.value
+      }
     case 'LOGIN_REQUEST':
       return state
     case 'LOGIN_FAILURE':
