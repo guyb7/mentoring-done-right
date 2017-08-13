@@ -6,7 +6,7 @@ import * as actionCreators from '../store/action-creators'
 import Avatar from 'material-ui/Avatar'
 import { List, ListItem } from 'material-ui/List'
 import Chip from 'material-ui/Chip'
-import { grey800, blueGrey300, green300, red300 } from 'material-ui/styles/colors'
+import { grey800 } from 'material-ui/styles/colors'
 
 import user1img from '../img/user-1.jpg'
 import user2img from '../img/user-2.jpg'

@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import * as actionCreators from '../store/action-creators'
 
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
-import DropDownMenu from 'material-ui/DropDownMenu'
 import Divider from 'material-ui/Divider'
 import { blueGrey100, blueGrey800, blueGrey900 } from 'material-ui/styles/colors'
 
 import HomeIcon from 'material-ui/svg-icons/action/home'
 import MyStartupsIcon from 'material-ui/svg-icons/toggle/star'
+import MyTeamIcon from 'material-ui/svg-icons/maps/local-airport'
 import StartupsIcon from 'material-ui/svg-icons/communication/business'
 import MembersIcon from 'material-ui/svg-icons/social/people'
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications'
@@ -19,7 +18,6 @@ import UserIcon from 'material-ui/svg-icons/social/person'
 import LogoutIcon from 'material-ui/svg-icons/action/exit-to-app'
 import LeftIcon from 'material-ui/svg-icons/navigation/arrow-back'
 import NewSessionIcon from 'material-ui/svg-icons/content/add'
-import SessionsIcon from 'material-ui/svg-icons/content/inbox'
 import FilesIcon from 'material-ui/svg-icons/file/attachment'
 
 const style = {
@@ -69,10 +67,6 @@ class SideNav extends Component {
     this.props.history.push(page)
   }
 
-  changeUserType(value) {
-    this.props.dispatch(actionCreators.setUserType(value))
-  }
-
   render() {
     let menuItems = null
     if (this.state.path.match(/^\/start-ups\/([^/]+)$/i)) {
@@ -111,18 +105,48 @@ class SideNav extends Component {
             primaryText="Home"
             leftIcon={<HomeIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/')} />
-          <MenuItem
-            primaryText="My Start-Ups"
-            leftIcon={<MyStartupsIcon color={style.iconColor} />}
-            onTouchTap={() => this.changePage('/my-start-ups')} />
-          <MenuItem
-            primaryText="Start-Ups"
-            leftIcon={<StartupsIcon color={style.iconColor} />}
-            onTouchTap={() => this.changePage('/start-ups')} />
-          <MenuItem
-            primaryText="People"
-            leftIcon={<MembersIcon color={style.iconColor} />}
-            onTouchTap={() => this.changePage('/members')} />
+          {
+            this.props.user.user_type === 'mentor' &&
+            <MenuItem
+              primaryText="My Start-Ups"
+              leftIcon={<MyStartupsIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/start-ups')} />
+          }
+          {
+            this.props.user.user_type !== 'startup' &&
+            <MenuItem
+              primaryText="Start-Ups"
+              leftIcon={<StartupsIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/start-ups')} />
+          }
+          {
+            this.props.user.user_type === 'startup' &&
+            <MenuItem
+              primaryText="My Mentors"
+              leftIcon={<MyStartupsIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/members')} />
+          }
+          {
+            this.props.user.user_type === 'accelerator' &&
+            <MenuItem
+              primaryText="Mentors"
+              leftIcon={<MyStartupsIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/members')} />
+          }
+          {
+            this.props.user.user_type !== 'accelerator' &&
+            <MenuItem
+              primaryText="People"
+              leftIcon={<MembersIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/members')} />
+          }
+          {
+            this.props.user.user_type === 'startup' &&
+            <MenuItem
+              primaryText="Reesio"
+              leftIcon={<MyTeamIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/start-ups/reesio')} />
+          }
         </Menu>)
     }
     return (
@@ -145,11 +169,6 @@ class SideNav extends Component {
             primaryText="Logout"
             leftIcon={<LogoutIcon color={style.iconColor} />}
             onTouchTap={() => {}} />
-          <DropDownMenu value={this.props.user.user_type} onChange={(e,i,v) => this.changeUserType(v)} labelStyle={{ color: style.iconColor }}>
-            <MenuItem value={'startup'} primaryText="Startup" />
-            <MenuItem value={'mentor'} primaryText="Mentor" />
-            <MenuItem value={'accelerator'} primaryText="Accelerator" />
-          </DropDownMenu>
         </Menu>
       </div>
     )

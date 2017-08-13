@@ -10,7 +10,7 @@ import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import DatePicker from 'material-ui/DatePicker'
 import RaisedButton from 'material-ui/RaisedButton'
-import { blueGrey50, blueGrey300, grey800, green300, red300 } from 'material-ui/styles/colors'
+import { blueGrey50, grey800, green300, red300 } from 'material-ui/styles/colors'
 
 import SendIcon from 'material-ui/svg-icons/content/send'
 import user1img from '../img/user-1.jpg'

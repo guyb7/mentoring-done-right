@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import * as actionCreators from '../store/action-creators'
 
+import MenuItem from 'material-ui/MenuItem'
+import DropDownMenu from 'material-ui/DropDownMenu'
 import { blueGrey700 } from 'material-ui/styles/colors'
 
 const style = {
   container: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     color: blueGrey700,
     backgroundColor: '#fff',
@@ -17,10 +21,21 @@ const style = {
 }
 
 class TitleBar extends Component {
+  changeUserType(value) {
+    this.props.dispatch(actionCreators.setUserType(value))
+  }
+
   render() {
     return (
       <div style={{ ...this.props.style, ...style.container }}>
-        {this.props.title || 'Overview'}
+        <div>
+          {this.props.title || 'Overview'}
+        </div>
+        <DropDownMenu value={this.props.user.user_type} onChange={(e,i,v) => this.changeUserType(v)} labelStyle={{ color: blueGrey700 }}>
+          <MenuItem value={'startup'} primaryText="Startup" />
+          <MenuItem value={'mentor'} primaryText="Mentor" />
+          <MenuItem value={'accelerator'} primaryText="Accelerator" />
+        </DropDownMenu>
       </div>
     )
   }
@@ -28,7 +43,8 @@ class TitleBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    title: state.title.title
+    title: state.title.title,
+    user: state.user
   }
 }
 
