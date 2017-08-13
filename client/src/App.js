@@ -11,6 +11,7 @@ import Logo from './components/Logo'
 import TitleBar from './components/TitleBar'
 import SideNav from './components/SideNav'
 import Home from './views/Home'
+import Dashboard from './views/Dashboard'
 import AllStartUps from './views/AllStartUps'
 import StartUp from './views/StartUp'
 import NewSession from './views/NewSession'
@@ -69,6 +70,7 @@ class App extends Component {
                 <Route exact path="/start-ups/:startupName/new-session" component={NewSession}/>
                 <Route exact path="/start-ups/:startupName/files" component={Files}/>
                 <Route exact path="/members" component={Members}/>
+                <Route exact path="/dashboard" component={Dashboard}/>
               </div>
             </div>
           </Router>

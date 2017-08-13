@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 
 import * as actionCreators from '../store/action-creators'
 
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
 import TextField from 'material-ui/TextField'
 import { GridList, GridTile } from 'material-ui/GridList'
 
@@ -34,6 +36,11 @@ const style = {
     textAlign: 'center',
     color: grey800,
     marginLeft: -15,
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20
   }
 }
 
@@ -122,6 +129,12 @@ class AllStartUps extends React.Component {
             ))}
           </GridList>
         </div>
+        {
+          this.props.user.user_type === 'accelerator' &&
+          <FloatingActionButton style={style.fab}>
+            <ContentAdd />
+          </FloatingActionButton>
+        }
       </div>
     )
   }

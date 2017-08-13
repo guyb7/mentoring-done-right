@@ -10,6 +10,7 @@ import { blueGrey100, blueGrey800, blueGrey900 } from 'material-ui/styles/colors
 import HomeIcon from 'material-ui/svg-icons/action/home'
 import MyStartupsIcon from 'material-ui/svg-icons/toggle/star'
 import MyTeamIcon from 'material-ui/svg-icons/maps/local-airport'
+import DashboardIcon from 'material-ui/svg-icons/action/timeline'
 import StartupsIcon from 'material-ui/svg-icons/communication/business'
 import MembersIcon from 'material-ui/svg-icons/social/people'
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications'
@@ -130,6 +131,13 @@ class SideNav extends Component {
               primaryText="My Start-Ups"
               leftIcon={<MyStartupsIcon color={style.iconColor} />}
               onTouchTap={() => this.changePage('/start-ups')} />
+          }
+          {
+            this.props.user.user_type === 'accelerator' &&
+            <MenuItem
+              primaryText="Dashboard"
+              leftIcon={<DashboardIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/dashboard')} />
           }
           {
             this.props.user.user_type !== 'startup' &&
