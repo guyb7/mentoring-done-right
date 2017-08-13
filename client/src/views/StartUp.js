@@ -130,6 +130,33 @@ class StartUp extends React.Component {
             </div>
           </div>
         </div>
+
+        {
+          this.props.user.user_type === 'accelerator' &&
+          <div style={style.item}>
+            <h3>Mentors Notes</h3>
+            <ListItem
+              primaryText="Chelsea Otakan"
+              secondaryText="Reesio have a lot of energy, but they lack of a solid long term vision."
+              leftAvatar={<Avatar src={user2img} />}
+            />
+            <ListItem
+              primaryText="Chelsea Otakan"
+              secondaryText="Reesio have a lot of energy, but they lack of a solid long term vision."
+              leftAvatar={<Avatar src={user2img} />}
+            />
+            <ListItem
+              primaryText="Chelsea Otakan"
+              secondaryText="Reesio have a lot of energy, but they lack of a solid long term vision."
+              leftAvatar={<Avatar src={user2img} />}
+            />
+            <ListItem
+              primaryText="Chelsea Otakan"
+              secondaryText="Reesio have a lot of energy, but they lack of a solid long term vision."
+              leftAvatar={<Avatar src={user2img} />}
+            />
+          </div>
+        }
       </div>
     )
   }
@@ -137,6 +164,7 @@ class StartUp extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.user
   }
 }
 

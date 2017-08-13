@@ -16,6 +16,8 @@ import NotificationsIcon from 'material-ui/svg-icons/social/notifications'
 import MessagesIcon from 'material-ui/svg-icons/communication/message'
 import UserIcon from 'material-ui/svg-icons/social/person'
 import LogoutIcon from 'material-ui/svg-icons/action/exit-to-app'
+import EditIcon from 'material-ui/svg-icons/editor/mode-edit'
+import ActionItemsIcon from 'material-ui/svg-icons/editor/format-list-numbered'
 import LeftIcon from 'material-ui/svg-icons/navigation/arrow-back'
 import NewSessionIcon from 'material-ui/svg-icons/content/add'
 import FilesIcon from 'material-ui/svg-icons/file/attachment'
@@ -77,10 +79,27 @@ class SideNav extends Component {
             leftIcon={<LeftIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/')} />
           <Divider style={style.divider} />
-          <MenuItem
-            primaryText="New Session"
-            leftIcon={<NewSessionIcon color={style.iconColor} />}
-            onTouchTap={() => this.changePage('/start-ups/ressio/new-session')} />
+          {
+            this.props.user.user_type === 'mentor' &&
+            <MenuItem
+              primaryText="New Session"
+              leftIcon={<NewSessionIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/start-ups/ressio/new-session')} />
+          }
+          {
+            this.props.user.user_type === 'startup' &&
+            <MenuItem
+              primaryText="Edit Page"
+              leftIcon={<EditIcon color={style.iconColor} />}
+              onTouchTap={() => {}} />
+          }
+          {
+            this.props.user.user_type === 'startup' &&
+            <MenuItem
+              primaryText="Action Items"
+              leftIcon={<ActionItemsIcon color={style.iconColor} />}
+              onTouchTap={() => {}} />
+          }
           <MenuItem
             primaryText="Files"
             leftIcon={<FilesIcon color={style.iconColor} />}
