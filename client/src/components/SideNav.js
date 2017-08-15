@@ -105,10 +105,13 @@ class SideNav extends Component {
             primaryText="Files"
             leftIcon={<FilesIcon color={style.iconColor} />}
             onTouchTap={() => this.changePage('/start-ups/ressio/files')} />
-          <MenuItem
-            primaryText="Send Message"
-            leftIcon={<MessagesIcon color={style.iconColor} />}
-            onTouchTap={() => this.changePage('/start-ups/ressio/messages')} />
+          {
+            this.props.user.user_type !== 'startup' &&
+            <MenuItem
+              primaryText="Send Message"
+              leftIcon={<MessagesIcon color={style.iconColor} />}
+              onTouchTap={() => this.changePage('/start-ups/ressio/messages')} />
+          }
         </Menu>)
     } else if (this.state.path.match(/^\/start-ups\/([^/]+)\/new-session$/i)) {
       menuItems = (
