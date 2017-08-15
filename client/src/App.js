@@ -14,6 +14,7 @@ import Home from './views/Home'
 import Dashboard from './views/Dashboard'
 import AllStartUps from './views/AllStartUps'
 import StartUp from './views/StartUp'
+import StartupActionItems from './views/StartupActionItems'
 import NewSession from './views/NewSession'
 import Members from './views/Members'
 import Files from './views/Files'
@@ -68,6 +69,7 @@ class App extends Component {
                 <Route exact path="/start-ups" component={AllStartUps}/>
                 <Route exact path="/start-ups/:startupName" component={StartUp}/>
                 <Route exact path="/start-ups/:startupName/new-session" component={NewSession}/>
+                <Route exact path="/start-ups/:startupName/action-items" component={StartupActionItems}/>
                 <Route exact path="/start-ups/:startupName/files" component={Files}/>
                 <Route exact path="/members" component={Members}/>
                 <Route exact path="/dashboard" component={Dashboard}/>

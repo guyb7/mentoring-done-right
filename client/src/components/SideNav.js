@@ -99,7 +99,7 @@ class SideNav extends Component {
             <MenuItem
               primaryText="Action Items"
               leftIcon={<ActionItemsIcon color={style.iconColor} />}
-              onTouchTap={() => {}} />
+              onTouchTap={() => this.changePage('/start-ups/ressio/action-items')} />
           }
           <MenuItem
             primaryText="Files"
@@ -114,6 +114,14 @@ class SideNav extends Component {
           }
         </Menu>)
     } else if (this.state.path.match(/^\/start-ups\/([^/]+)\/new-session$/i)) {
+      menuItems = (
+        <Menu menuItemStyle={style.item} style={style.menu}>
+          <MenuItem
+            primaryText="Back"
+            leftIcon={<LeftIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/start-ups/ressio')} />
+        </Menu>)
+    } else if (this.state.path.match(/^\/start-ups\/([^/]+)\/action-items$/i)) {
       menuItems = (
         <Menu menuItemStyle={style.item} style={style.menu}>
           <MenuItem

@@ -7,7 +7,7 @@ import DatePicker from 'material-ui/DatePicker'
 import TextField from 'material-ui/TextField'
 import Checkbox from 'material-ui/Checkbox'
 
-import { blueGrey800, blueGrey200 } from 'material-ui/styles/colors'
+import { blueGrey800 } from 'material-ui/styles/colors'
 import user2img from '../img/user-2.jpg'
 
 const style = {
