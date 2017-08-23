@@ -18,6 +18,8 @@ import StartupActionItems from './views/StartupActionItems'
 import NewSession from './views/NewSession'
 import Members from './views/Members'
 import Files from './views/Files'
+import Agenda from './views/Agenda'
+import Opportunities from './views/Opportunities'
 
 const baseUrl = process.env.NODE_ENV.toUpperCase() === 'TEST' ? '' : '/app'
 
@@ -73,6 +75,8 @@ class App extends Component {
                 <Route exact path="/start-ups/:startupName/files" component={Files}/>
                 <Route exact path="/members" component={Members}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
+                <Route exact path="/agenda" component={Agenda}/>
+                <Route exact path="/opportunities" component={Opportunities}/>
               </div>
             </div>
           </Router>

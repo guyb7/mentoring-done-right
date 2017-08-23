@@ -22,6 +22,8 @@ import ActionItemsIcon from 'material-ui/svg-icons/editor/format-list-numbered'
 import LeftIcon from 'material-ui/svg-icons/navigation/arrow-back'
 import NewSessionIcon from 'material-ui/svg-icons/content/add'
 import FilesIcon from 'material-ui/svg-icons/file/attachment'
+import CalendarIcon from 'material-ui/svg-icons/action/date-range'
+import OpportunitiesIcon from 'material-ui/svg-icons/action/redeem'
 
 const style = {
   container: {
@@ -185,6 +187,14 @@ class SideNav extends Component {
               leftIcon={<MyTeamIcon color={style.iconColor} />}
               onTouchTap={() => this.changePage('/start-ups/reesio')} />
           }
+          <MenuItem
+            primaryText="Agenda"
+            leftIcon={<CalendarIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/agenda')} />
+          <MenuItem
+            primaryText="Opportunities"
+            leftIcon={<OpportunitiesIcon color={style.iconColor} />}
+            onTouchTap={() => this.changePage('/opportunities')} />
         </Menu>)
     }
     return (

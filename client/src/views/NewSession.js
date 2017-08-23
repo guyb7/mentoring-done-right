@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../store/action-creators'
 
 import ActionItems from '../components/ActionItems'
+import KPIItems from '../components/KPIItems'
 import Avatar from 'material-ui/Avatar'
 import { List, ListItem } from 'material-ui/List'
 import TextField from 'material-ui/TextField'
@@ -164,6 +165,11 @@ class StartUp extends React.Component {
         <div style={style.item}>
           <h3>Action Items</h3>
           <ActionItems />
+        </div>
+
+        <div style={style.item}>
+          <h3>KPIs</h3>
+          <KPIItems />
         </div>
       </div>
     )
