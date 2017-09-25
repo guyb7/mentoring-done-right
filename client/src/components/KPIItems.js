@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 
 import LinearProgress from 'material-ui/LinearProgress'
 import TextField from 'material-ui/TextField'
-import Checkbox from 'material-ui/Checkbox'
 
-import { blueGrey800, red800, blue500 } from 'material-ui/styles/colors'
-import user2img from '../img/user-2.jpg'
+import { red800, blue500 } from 'material-ui/styles/colors'
 
 const style = {
   container: {

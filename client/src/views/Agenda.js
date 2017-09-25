@@ -4,9 +4,11 @@ import { withRouter } from 'react-router-dom'
 
 import * as actionCreators from '../store/action-creators'
 
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
 import { grey800 } from 'material-ui/styles/colors'
 
-import calendar1 from '../img/calendar-1.jpg'
+import Calendar from '../components/Calendar'
 
 const style = {
   container: {
@@ -23,6 +25,11 @@ const style = {
   img: {
     width: '100%',
     height: 'auto'
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20
   }
 }
 
@@ -34,7 +41,22 @@ class Agenda extends React.Component {
   render () {
     return (
       <div style={{ ...this.props.style, ...style.container }}>
-        <img src={calendar1} alt="" style={style.img} />
+        <div>
+          <h4>January</h4>
+          <Calendar year="2018" month="01" events={[]} />
+          <h4>February</h4>
+          <Calendar year="2018" month="02" events={[]} />
+          <h4>March</h4>
+          <Calendar year="2018" month="03" events={[]} />
+          <h4>April</h4>
+          <Calendar year="2018" month="04" events={[]} />
+        </div>
+        {
+          this.props.user.user_type === 'accelerator' &&
+          <FloatingActionButton style={style.fab}>
+            <ContentAdd />
+          </FloatingActionButton>
+        }
       </div>
     )
   }

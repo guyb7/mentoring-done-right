@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../store/action-creators'
 
 import ActionItems from '../components/ActionItems'
-import { grey50, grey800 } from 'material-ui/styles/colors'
+import KPIItems from '../components/KPIItems'
+import { grey800 } from 'material-ui/styles/colors'
 
 const style = {
   container: {
@@ -32,6 +33,11 @@ class StartUpActionItems extends React.Component {
         <div style={style.item}>
           <h3>Action Items</h3>
           <ActionItems />
+        </div>
+
+        <div style={style.item}>
+          <h3>KPIs</h3>
+          <KPIItems />
         </div>
       </div>
     )

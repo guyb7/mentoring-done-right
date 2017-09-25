@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 
 import * as actionCreators from '../store/action-creators'
 
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
 import {List, ListItem} from 'material-ui/List'
 import Divider from 'material-ui/Divider'
 import Subheader from 'material-ui/Subheader'
@@ -30,6 +32,11 @@ const style = {
   img: {
     width: '100%',
     height: 'auto'
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20
   }
 }
 
@@ -142,6 +149,12 @@ class Opportunities extends React.Component {
             <Divider inset={true} />
           </List>
         </div>
+        {
+          this.props.user.user_type === 'accelerator' &&
+          <FloatingActionButton style={style.fab}>
+            <ContentAdd />
+          </FloatingActionButton>
+        }
       </div>
     )
   }
